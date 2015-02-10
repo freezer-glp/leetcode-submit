@@ -15,6 +15,23 @@ Given 1->1->2->3->3, return 1->2->3.*/
 class Solution {
 public:
     ListNode *deleteDuplicates(ListNode *head) {
-        
+        ListNode *h =NULL,*cptr,*nptr,*index;
+		if(head == NULL)
+			return NULL;
+		index = head;
+		while(index != NULL){
+			nptr = new ListNode(index -> val);
+			if(h  == NULL){
+				h  = nptr;
+				cptr = nptr;
+			}else{
+				if(cptr -> val != nptr -> val){
+					cptr -> next = nptr;
+					cptr = nptr;
+				}
+			}
+			index = index -> next;
+		}
+		return h ;
     }
 };
