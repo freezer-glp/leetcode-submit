@@ -12,6 +12,24 @@ Try to do this in one pass.*/
 class Solution {
 public:
     ListNode *removeNthFromEnd(ListNode *head, int n) {
-        
+        int len = 0;
+		int step;
+		ListNode *cptr = head;
+		while(cptr != NULL){
+			len++;
+			cptr = cptr -> next;
+		}
+		if(n ==  len){
+			return head -> next;
+		}else{
+			cptr = head;
+			step =  len - n - 1;
+			while(step != 0){
+				cptr = cptr ->  next;
+				step--;
+			}
+			cptr -> next = cptr -> next -> next;
+			return head;
+		}
     }
 };
