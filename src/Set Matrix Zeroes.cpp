@@ -10,6 +10,26 @@ Could you devise a constant space solution?*/
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        
+        int rowNum = matrix.size();
+		int colNum = matrix[0].size();
+		vector<int> r,c;
+		for(int i = 0; i <= rowNum - 1; i++)
+			for(int j = 0; j <= colNum - 1; j++){
+				if(matrix[i][j] == 0){
+					r.push_back(i);
+					c.push_back(j);
+				}			
+			}
+
+		for(int i : r){
+			for(int j = 0; j <= colNum - 1; j++){
+				matrix[i][j] = 0;
+			}
+		}
+
+		for(int j : c){
+			for(int i = 0; i <= rowNum - 1; i++){
+				matrix[i][j] = 0;			}
+		}
     }
 };
