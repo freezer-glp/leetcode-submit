@@ -3,30 +3,31 @@
  Do not allocate extra space for another array, you must do this in place with constant memory.*/
 class Solution {
 public:
-    int removeDuplicates(int A[], int n) {
-        int len = n;
+    int removeDuplicates(vector<int>& nums) {
+        int len = nums.size();
+        if(!len)
+            return 0;
         queue<int > q;
         int flag;
-        flag =  A[0];
+        flag =  nums[0];
         int i = 1;
-        while(i < n){
-            if(A[i] == flag){
-                q.push(i);
+        while(i < nums.size()){
+            if(nums[i] == flag){
+                q.push(i);//将重复的位置放入队列中记录下来
                 len--;
             }else{
                 if(!q.empty()){
-                    A[q.front()] = A[i];
+                    nums[q.front()] = nums[i];
                     q.pop();
                     q.push(i);
-                    flag = A[i];
+                    flag = nums[i];
                     //i--;
                 }else
-                    flag = A[i];
+                    flag = nums[i];
             }
             i++;
         }
         
         return len;
-        
     }
 };
