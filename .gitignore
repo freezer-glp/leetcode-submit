@@ -41,3 +41,15 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+src/.idea/workspace.xml
+
+src/.idea/vcs.xml
+
+src/.idea/src.iml
+
+src/.idea/modules.xml
+
+src/.idea/misc.xml
+
+src/CMakeLists.txt
