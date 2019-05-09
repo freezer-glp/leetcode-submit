@@ -15,6 +15,7 @@ public:
         return   res;      
       } 
       int i = 0, j = 0;
+      while (i < A.size() && j < B.size()) {
         if (A[i][1] < B[j][0]) {
           i++;
         } else if (A[i][1] == B[j][0]) {
